@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-find_package(SQLite3 REQUIRED)
+#find_package(SQLite3 REQUIRED)
 
 add_library(payroll_core
     src/Domain.cpp
@@ -14,9 +14,10 @@ add_library(payroll_core
     src/PayrollService.cpp
     src/Reports.cpp
     src/ConsoleApp.cpp
+    src/sqlite3.c
 )
 target_include_directories(payroll_core PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
-target_link_libraries(payroll_core PUBLIC SQLite::SQLite3)
+#target_link_libraries(payroll_core PUBLIC SQLite::SQLite3)
 if (MSVC)
     target_compile_options(payroll_core PRIVATE /W4)
 else()
